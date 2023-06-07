@@ -57,14 +57,14 @@ make_deflines <- function(query, prefix = "lcl") {
   list(defline=paste(id, desc), parse_defline=parse_defline)
 }
 
-#' @importFrom Biostrings fasta.info
+#' @importFrom Biostrings fasta.seqlengths
 #' @keywords internal
 make_blast_query <- function(query, transl = FALSE) {
   ## Set up tempfile to use as input for blast
   tmp <- tempfile(fileext = ".fa")
   if (is.string(query) && tryCatch(is.readable(query), assertError = function(e) FALSE )) {
     # query must be the path to a valid FASTA file
-    nqueries <- length(fasta.info(query))
+    nqueries <- length(fasta.seqlengths(query))
     # copy query to tempfile because blast deletes the query file
     # after it's finished
     file.copy(query, tmp)
