@@ -22,7 +22,6 @@ Imports:
     stringr,
     XML
 Suggests:
-    biofiles,
     testthat
 Collate:
     'all-generics.r'
@@ -43,3 +42,4 @@ Collate:
     'blastTable-class.r'
     'blastr-package.r'
     'zzz.r'
+RoxygenNote: 7.2.3
